@@ -255,7 +255,7 @@ The following features are planned for implementation:
 
 ## License
 
-Mason Omare Designs
+Mason Omare Design
 
 ## Contributing
 
