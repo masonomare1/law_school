@@ -25,12 +25,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     # Third party apps
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     'django_celery_beat',
-    
+
     # Local apps
     'api',
     'documents',
@@ -124,6 +125,11 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser',
         'rest_framework.parsers.FormParser',
     ],
+    # Global throttling rates used by view-specific throttles
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': config('DRF_THROTTLE_ANON', default='20/hour'),
+        'user': config('DRF_THROTTLE_USER', default='100/hour'),
+    },
 }
 
 # CORS settings
